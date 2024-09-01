@@ -1,5 +1,6 @@
 
 using LibraryAPI.Data;
+using LibraryAPI.Endpoints;
 using LibraryAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -36,6 +37,7 @@ namespace LibraryAPI
 
             app.UseAuthorization();
 
+            app.ConfigurationBookEndpoints();
             app.Run();
         }
     }
