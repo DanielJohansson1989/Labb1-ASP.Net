@@ -12,6 +12,6 @@ namespace LibraryAPI.Models
         public string Author { get; set; }
         public DateOnly DateOfPublication { get; set; }
         public string Genre { get; set; }
-        public bool Available { get; set; }
+        public bool Available { get; set; } = true;
     }
 }
