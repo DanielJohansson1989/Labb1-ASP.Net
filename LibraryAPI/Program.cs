@@ -24,6 +24,7 @@ namespace LibraryAPI
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Defaultconnection"));
             });
             builder.Services.AddScoped<IBookRepository, BookRepository>();
+            builder.Services.AddAutoMapper(typeof(MappingDTOConfigurations));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
