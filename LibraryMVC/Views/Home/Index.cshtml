@@ -1,0 +1,14 @@
+﻿@model SearchString
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to my library</h1>
+    <p>Click here to see all books.</p>
+    <form asp-action="SearchForBooks" asp-controller="Book" method="get" class="form-group">
+        <label>Search for title, author, or genre</label>
+        <input type="text" asp-for="SearchKeyword"/>
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </form>
+</div>

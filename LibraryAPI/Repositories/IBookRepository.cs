@@ -11,5 +11,6 @@ namespace LibraryAPI.Repositories
         Task DeleteBookAsync(Book book);
         Task UpdateBookAsync(Book book);
         Task SaveAsync();
+        Task<IEnumerable<Book>> SearchBookAsync(string searchKeyword);
     }
 }

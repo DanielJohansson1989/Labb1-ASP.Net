@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Book>
+
+
+<h1>Results</h1>
+<br />
+
+@if (Model == null || !Model.Any())
+{
+    <p>No books found matching your search criteria.</p>
+}
+<table class="table">
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>
+                <picture>Pic</picture>
+            </td>
+            <td>
+                @Html.DisplayFor(model => book.Title)<br />
+                @Html.DisplayFor(model => book.Author)
+            </td>
+        </tr>
+    }
+
+</table>

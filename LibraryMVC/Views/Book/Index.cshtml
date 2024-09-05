@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Book>
+
+
+<h1>All books</h1>
+<br />
+<table class="table">
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>
+                <picture>Pic</picture>
+            </td>
+            <td>
+                @Html.DisplayFor(model => book.Title)<br />
+                @Html.DisplayFor(model => book.Author)
+            </td>
+        </tr>   
+    }
+    
+</table>

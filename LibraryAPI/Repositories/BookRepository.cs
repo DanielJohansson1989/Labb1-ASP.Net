@@ -41,6 +41,16 @@ namespace LibraryAPI.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<Book>> SearchBookAsync(string searchKeyword)
+        {
+            IQueryable<Book> query = _context.Books;
+            if (!string.IsNullOrEmpty(searchKeyword))
+            {
+                query = query.Where( b => b.Title.Contains(searchKeyword) || b.Author.Contains(searchKeyword) || b.Genre.Contains(searchKeyword) );
+            }
+            return await query.ToListAsync();
+        }
+
         public async Task UpdateBookAsync(Book book)
         {
             _context.Books.Update(book);
