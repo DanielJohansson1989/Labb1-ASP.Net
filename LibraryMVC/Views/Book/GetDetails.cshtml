@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Book
+
+<table>
+    <tbody>
+        <td><picture>pic</picture></td>
+        <td>
+            <h3>@Html.DisplayFor(model => model.Title)</h3>
+            <h5>@Html.DisplayFor(model => model.Author)</h5>
+            <p>@Html.DisplayFor(model => model.DateOfPublication)</p>
+            <p>@Html.DisplayFor(model => model.Genre)</p>
+        </td>
+        <td>
+            <span class="btn btn-outline-success">Update</span>
+            <span class="btn btn-outline-danger">Delete</span>
+        </td>
+    </tbody>
+</table>

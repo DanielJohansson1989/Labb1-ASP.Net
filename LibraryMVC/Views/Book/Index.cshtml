@@ -14,14 +14,19 @@
                 @Html.DisplayFor(model => book.Title)<br />
                 @Html.DisplayFor(model => book.Author)
             </td>
+            <td>
+                <a asp-action="GetDetails" asp-route-id="@book.ID" class="btn btn-outline-dark">
+                    Details
+                </a>
+            </td>
             <td class="align-middle">
                 @if (book.Available)
                 {
-                    <span class="bg-success p-1">Available</span>
+                    <span class="bg-success p-1 rounded">Available</span>
                 }
                 else
                 {
-                    <span class="bg-danger p-1">Currently unavailable</span>
+                    <span class="bg-danger p-1 rounded">Currently unavailable</span>
                 }
             </td>
         </tr>   

@@ -4,6 +4,7 @@ namespace LibraryAPI.Models
 {
     public class Book
     {
+        [Key]
         [Required]
         public int ID { get; set; }
         [Required, MaxLength(50)]
