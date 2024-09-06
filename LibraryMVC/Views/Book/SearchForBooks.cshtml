@@ -12,12 +12,22 @@
     @foreach (var book in Model)
     {
         <tr>
-            <td>
+            <td class="align-middle">
                 <picture>Pic</picture>
             </td>
             <td>
                 @Html.DisplayFor(model => book.Title)<br />
                 @Html.DisplayFor(model => book.Author)
+            </td>
+            <td class="align-middle">
+                @if (book.Available)
+                {
+                    <span class="bg-success p-1">Available</span>
+                }
+                else
+                {
+                    <span class="bg-danger p-1">Currently unavailable</span>
+                }
             </td>
         </tr>
     }
