@@ -4,19 +4,22 @@
 @{
 }
 @model Book
+<div>
 
-<table>
-    <tbody>
-        <td><picture>pic</picture></td>
-        <td>
-            <h3>@Html.DisplayFor(model => model.Title)</h3>
-            <h5>@Html.DisplayFor(model => model.Author)</h5>
-            <p>@Html.DisplayFor(model => model.DateOfPublication)</p>
-            <p>@Html.DisplayFor(model => model.Genre)</p>
-        </td>
-        <td>
-            <span class="btn btn-outline-success">Update</span>
-            <span class="btn btn-outline-danger">Delete</span>
-        </td>
-    </tbody>
-</table>
+    <table>
+        <tbody>
+            <td><picture>pic</picture></td>
+            <td>
+                <h3>@Html.DisplayFor(model => model.Title)</h3>
+                <h5>@Html.DisplayFor(model => model.Author)</h5>
+                <p>@Html.DisplayFor(model => model.DateOfPublication)</p>
+                <p>@Html.DisplayFor(model => model.Genre)</p>
+            </td>
+            <td>
+                <a asp-action="Update" class="btn btn-outline-success" asp-route-id="@Model.ID">Update</a>
+                <span class="btn btn-outline-danger">Delete</span>
+            </td>
+        </tbody>
+    </table>
+    <a asp-action="Index">Back</a>
+</div>
