@@ -39,15 +39,19 @@ namespace LibraryMVC.Services
                 switch (request.RequestType)
                 {
                     case StaticDetails.RequestType.GET:
+                        requestMessage.Method = HttpMethod.Get;
                         break;
                     case StaticDetails.RequestType.POST:
+                        requestMessage.Method = HttpMethod.Post;
                         break;
                     case StaticDetails.RequestType.PUT:
+                        requestMessage.Method = HttpMethod.Put;
                         break;
                     case StaticDetails.RequestType.DELETE:
+                        requestMessage.Method = HttpMethod.Delete;
                         break;
                     default:
-                        break;
+                        throw new NotImplementedException($"Request type {request.RequestType} is not implemented");
                 }
 
                 HttpResponseMessage apiResponse = await client.SendAsync(requestMessage);
