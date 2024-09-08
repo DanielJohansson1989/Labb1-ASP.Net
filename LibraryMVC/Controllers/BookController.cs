@@ -60,6 +60,7 @@ namespace LibraryMVC.Controllers
             }
             return NotFound();
         }
+
         [HttpPost]
         public async Task<IActionResult> Update(Book book)
         {
@@ -68,34 +69,22 @@ namespace LibraryMVC.Controllers
                 var response = await _bookService.UpdateBookAsync<APIResponseDTO>(book);
                 if (response != null && response.IsSuccess)
                 {
-                    return RedirectToAction("Index", "Book");
+                    return RedirectToAction("Index");
                 }
             }
             return View(book);
         }
 
+        [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            var response = await _bookService.GetBookById<APIResponseDTO>(id);
+            var response = await _bookService.DeleteBookAsync<APIResponseDTO>(id);
             if (response != null && response.IsSuccess)
             {
-                Book book = JsonConvert.DeserializeObject<Book>(Convert.ToString(response.Result));
-                return View(book);
+                return RedirectToAction(nameof(Index));
             }
+            
             return NotFound();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Delete(Book book)
-        {
-            if (ModelState.IsValid)
-            {
-                var response = await _bookService.DeleteBookAsync<APIResponseDTO>(book.ID);
-                if (response != null && response.IsSuccess)
-                {
-                    return RedirectToAction(nameof(Index));
-                }
-            }
-            return View(book);
         }
     }
 }

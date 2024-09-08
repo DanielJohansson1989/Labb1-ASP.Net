@@ -1,14 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model Book
+﻿@model Book
 <div>
 
     <table>
         <tbody>
-            <td><picture>pic</picture></td>
+            <td>
+                <picture>pic</picture>
+            </td>
             <td>
                 <h3>@Html.DisplayFor(model => model.Title)</h3>
                 <h5>@Html.DisplayFor(model => model.Author)</h5>
@@ -16,8 +13,30 @@
                 <p>@Html.DisplayFor(model => model.Genre)</p>
             </td>
             <td>
-                <a asp-action="Update" class="btn btn-outline-success" asp-route-id="@Model.ID">Update</a>
-                <span class="btn btn-outline-danger">Delete</span>
+                <a asp-action="Update" asp-route-id="@Model.ID" class="btn btn-outline-success">Update</a>
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    Delete
+                </button>
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete this item?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <form asp-action="Delete" method="post">
+                                    <input type="hidden" asp-for="ID" />
+                                    <button type="submit" class="btn btn-outline-primary">Confirm</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tbody>
     </table>
