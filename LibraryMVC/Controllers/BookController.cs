@@ -1,4 +1,5 @@
 ﻿using LibraryAPI.Models;
+using LibraryAPI.Models.DTOs;
 using LibraryMVC.Models;
 using LibraryMVC.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -85,6 +86,25 @@ namespace LibraryMVC.Controllers
             }
             
             return NotFound();
+        }
+
+        public async Task<IActionResult> CreateBook()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBook(CreateBookDTO bookDto)
+        {
+            if (ModelState.IsValid)
+            {
+                var response = await _bookService.CreateBookAsync<APIResponseDTO>(bookDto);
+                if (response != null && response.IsSuccess)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View(bookDto);
         }
     }
 }
