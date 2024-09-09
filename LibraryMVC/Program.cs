@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using LibraryMVC.Services;
 
 namespace LibraryMVC
@@ -12,6 +13,7 @@ namespace LibraryMVC
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IBookService, BookService>();
             builder.Services.AddHttpClient();
+            builder.Services.AddFluentValidation(FluentValidation => FluentValidation.RegisterValidatorsFromAssemblyContaining<Program>());
 
             StaticDetails.LibraryAPIBaseURL = builder.Configuration["ServiceUrls:LibraryAPI"];
 

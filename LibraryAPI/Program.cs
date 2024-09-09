@@ -1,4 +1,5 @@
 
+using FluentValidation;
 using LibraryAPI.Data;
 using LibraryAPI.Endpoints;
 using LibraryAPI.Repositories;
@@ -25,6 +26,8 @@ namespace LibraryAPI
             });
             builder.Services.AddScoped<IBookRepository, BookRepository>();
             builder.Services.AddAutoMapper(typeof(MappingDTOConfigurations));
+            builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
