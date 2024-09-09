@@ -11,7 +11,9 @@ namespace LibraryAPI.Models
         public string Title { get; set; }
         [Required, MaxLength(50)]
         public string Author { get; set; }
+        [Required, DisplayFormat]
         public DateOnly DateOfPublication { get; set; }
+        [Required, MaxLength(30)]
         public string Genre { get; set; }
         public bool Available { get; set; } = true;
     }
