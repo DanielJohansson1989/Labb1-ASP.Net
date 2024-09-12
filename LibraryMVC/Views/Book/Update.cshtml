@@ -29,10 +29,10 @@
         </label>
     </div>
     <div class="form-group">
-        <input type="submit" value="Save" class="btn btn-outline-primary"/>
+        <input type="submit" value="Save" class="btn btn-outline-primary fw-bold"/>
     </div>
 
 </form>
 <div>
-    <a asp-action="GetDetails" asp-route-id="@Model.ID">Return</a>
+    <a asp-action="GetDetails" asp-route-id="@Model.ID" class="btn btn-outline-danger fw-bold mt-2">Cancel</a>
 </div>

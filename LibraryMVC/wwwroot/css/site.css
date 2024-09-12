@@ -18,5 +18,9 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: url("../images/inaki-del-olmo-NIJuEQw0RKg-unsplash.jpg");
+    background-size: contain;
+    color: white;
+    font-size:large;
 }

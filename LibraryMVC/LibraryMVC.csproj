@@ -15,4 +15,8 @@
     <ProjectReference Include="..\LibraryAPI\LibraryAPI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>

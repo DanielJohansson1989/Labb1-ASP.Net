@@ -1,9 +1,6 @@
 ﻿@model IEnumerable<Book>
 
 
-<h1>Results</h1>
-<br />
-
 @if (Model == null || !Model.Any())
 {
     <p>No books found matching your search criteria.</p>
@@ -13,21 +10,26 @@
     {
         <tr>
             <td class="align-middle">
-                <picture>Pic</picture>
+                <img src="@book.ImageURL" alt="@book.Title" />
             </td>
             <td>
-                @Html.DisplayFor(model => book.Title)<br />
-                @Html.DisplayFor(model => book.Author)
+                <h3 class="text-white">@Html.DisplayFor(model => book.Title)</h3>
+                <h5 class="text-white">@Html.DisplayFor(model => book.Author)</h5>
+                <div class="mt-3 p-2 ">
+                    @if (book.Available)
+                    {
+                        <span class="bg-success p-3 fw-bold rounded text-white">Available</span>
+                    }
+                    else
+                    {
+                        <span class="bg-danger p-3 fw-bold rounded">Currently unavailable</span>
+                    }
+                </div>
             </td>
-            <td class="align-middle">
-                @if (book.Available)
-                {
-                    <span class="bg-success p-1">Available</span>
-                }
-                else
-                {
-                    <span class="bg-danger p-1">Currently unavailable</span>
-                }
+            <td>
+                <a asp-action="GetDetails" asp-route-id="@book.ID" class="btn btn-outline-primary fw-bold">
+                    Details
+                </a>
             </td>
         </tr>
     }
