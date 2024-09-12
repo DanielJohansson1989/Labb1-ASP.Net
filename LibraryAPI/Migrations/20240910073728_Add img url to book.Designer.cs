@@ -4,6 +4,7 @@ using LibraryAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240910073728_Add img url to book")]
+    partial class Addimgurltobook
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,7 +69,7 @@ namespace LibraryAPI.Migrations
                             Available = true,
                             DateOfPublication = new DateOnly(2010, 8, 12),
                             Genre = "Skönlitteratur",
-                            ImageURL = "\\images\\flugornas-herre.jpg",
+                            ImageURL = "C:\\Users\\46703\\source\\repos\\Labb1-ASP.Net\\LibraryMVC\\wwwroot\\images\\flugornas-herre.jpg",
                             Title = "Flugornas herre"
                         },
                         new
@@ -76,7 +79,7 @@ namespace LibraryAPI.Migrations
                             Available = true,
                             DateOfPublication = new DateOnly(2002, 1, 1),
                             Genre = "Fantasy",
-                            ImageURL = "\\images\\harskarringen.jpg",
+                            ImageURL = "C:\\Users\\46703\\source\\repos\\Labb1-ASP.Net\\LibraryMVC\\wwwroot\\images\\harskarringen.jpg",
                             Title = "Härskarringen"
                         },
                         new
@@ -86,7 +89,7 @@ namespace LibraryAPI.Migrations
                             Available = false,
                             DateOfPublication = new DateOnly(2024, 3, 8),
                             Genre = "Deckare",
-                            ImageURL = "\\images\\hembitradet.jpg",
+                            ImageURL = "C:\\Users\\46703\\source\\repos\\Labb1-ASP.Net\\LibraryMVC\\wwwroot\\images\\hembitradet.jpg",
                             Title = "Hembiträdet"
                         },
                         new
@@ -96,7 +99,7 @@ namespace LibraryAPI.Migrations
                             Available = true,
                             DateOfPublication = new DateOnly(2006, 10, 30),
                             Genre = "Barnbok",
-                            ImageURL = "\\images\\aja-baja-alfons-aberg.jpg",
+                            ImageURL = "C:\\Users\\46703\\source\\repos\\Labb1-ASP.Net\\LibraryMVC\\wwwroot\\images\\aja-baja-alfons-aberg.jpg",
                             Title = "Aja baja, Alfons Åberg"
                         },
                         new
@@ -106,7 +109,7 @@ namespace LibraryAPI.Migrations
                             Available = false,
                             DateOfPublication = new DateOnly(2015, 4, 20),
                             Genre = "Barnbok",
-                            ImageURL = "\\images\\pippi-langstrump.jpg",
+                            ImageURL = "C:\\Users\\46703\\source\\repos\\Labb1-ASP.Net\\LibraryMVC\\wwwroot\\images\\pippi-langstrump.jpg",
                             Title = "Pippi Långstrump"
                         },
                         new
@@ -116,7 +119,7 @@ namespace LibraryAPI.Migrations
                             Available = false,
                             DateOfPublication = new DateOnly(2019, 9, 25),
                             Genre = "Skräck",
-                            ImageURL = "\\images\\den-grona-milen.jpg",
+                            ImageURL = "C:\\Users\\46703\\source\\repos\\Labb1-ASP.Net\\LibraryMVC\\wwwroot\\images\\den-grona-milen.jpg",
                             Title = "Den gröna milen"
                         });
                 });
