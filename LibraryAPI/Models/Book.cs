@@ -16,5 +16,6 @@ namespace LibraryAPI.Models
         [Required, MaxLength(30)]
         public string Genre { get; set; }
         public bool Available { get; set; } = true;
+        public string? ImageURL { get; set; }
     }
 }
