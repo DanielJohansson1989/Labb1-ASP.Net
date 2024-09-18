@@ -9,5 +9,6 @@ namespace LibraryAPI.Models.DTOs
         public DateOnly DateOfPublication { get; set; }
         public string Genre { get; set; }
         public string ImageURL { get; set; }
+        public string Description { get; set; }
     }
 }

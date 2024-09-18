@@ -17,5 +17,6 @@ namespace LibraryAPI.Models
         public string Genre { get; set; }
         public bool Available { get; set; } = true;
         public string? ImageURL { get; set; }
+        public string? Description { get; set; }
     }
 }
