@@ -4,24 +4,20 @@
     <table>
         <tbody class="container">
             <tr>
-                <td class="col-4">
+                <td class="col-3">
                     <img src="@Model.ImageURL" alt="@Model.Title" />
                 </td>
-                <td class="col-4">
+                <td class="col-3">
                     <h3 class="fw-bolder">@Html.DisplayFor(model => model.Title)</h3>
                     <h5 class="fw-bold">@Html.DisplayFor(model => model.Author)</h5>
                     <p>Date of publication: @Html.DisplayFor(model => model.DateOfPublication)</p>
                     <p>Genre: @Html.DisplayFor(model => model.Genre)</p>
-                </td>
-                <td class="col-4">
-                    <div class="ms-3">
-                        <a asp-action="Update" asp-route-id="@Model.ID" class="btn btn-outline-success fw-bold mb-2 me-2">
-                            Update
-                        </a>
-                        <button type="button" class="btn btn-outline-danger fw-bold mb-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                            Delete
-                        </button>
-                    </div>
+                    <a asp-action="Update" asp-route-id="@Model.ID" class="btn btn-outline-success fw-bold mb-2 me-2">
+                        Update
+                    </a>
+                    <button type="button" class="btn btn-outline-danger fw-bold mb-2" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        Delete
+                    </button>                  
                     <div class="modal fade text-black" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -42,6 +38,10 @@
                             </div>
                         </div>
                     </div>
+                </td>
+                <td class="col-6 p-1">
+                    <h5 class="fw-bold">@Html.DisplayNameFor(book => book.Description)</h5>
+                    <p>@Model.Description</p>
                 </td>
             </tr>
         </tbody>
