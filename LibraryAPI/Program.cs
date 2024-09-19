@@ -27,6 +27,10 @@ namespace LibraryAPI
             builder.Services.AddScoped<IBookRepository, BookRepository>();
             builder.Services.AddAutoMapper(typeof(MappingDTOConfigurations));
             builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+            builder.Services.AddCors( setup => setup.AddPolicy("default", options =>
+            {
+                options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+            }));
 
             var app = builder.Build();
 
@@ -36,7 +40,7 @@ namespace LibraryAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors("default");
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
