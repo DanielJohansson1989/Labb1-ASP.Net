@@ -29,7 +29,7 @@ namespace LibraryAPI
             builder.Services.AddValidatorsFromAssemblyContaining<Program>();
             builder.Services.AddCors( setup => setup.AddPolicy("default", options =>
             {
-                options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+                options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
 
             var app = builder.Build();
